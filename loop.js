@@ -11,6 +11,7 @@
 
 */
 
+//----------------------- START loop.js code ---------------------//
 
 // accepts jQuery object, node list, string selector, then called a setup for each element
 var loop = function(selector){
@@ -18,15 +19,15 @@ var loop = function(selector){
   if(typeof selector === 'string' || selector instanceof String){
     var elements = document.querySelectorAll(selector);
     for (var i = 0; i < elements.length; i++) {
-      callExample.call(elements[i]);
+      example.call(elements[i]);
     }
   // if a single element object is passed in
   } else if(isElement(selector)){
-    callExample.call(selector);
+    example.call(selector);
   // if a node list is passed in ex. jQuery $() object
   } else {
     for (var i = 0; i < selector.length; i++) {
-      callExample.call(selector[i]);
+      example.call(selector[i]);
     }
   }
 }
@@ -39,10 +40,12 @@ var isElement = function(o){
   );
 }
 
+//----------------------- END loop.js code ---------------------//
 
 
 
+//------ This is the Example of what will be called ------//
 // 'this' in this function will be an indvidual DOM element
-var callExample = function(){
+var example = function(){
   console.log(this);
 }
